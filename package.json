@@ -1,0 +1,30 @@
+{
+  "name": "umi-block-convertor",
+  "version": "0.0.1",
+  "description": "A cli tool to convert your umi page to a umi block.",
+  "main": "lib/index.js",
+  "bin": {
+    "umi-block-convertor": "./bin/convertor.js"
+  },
+  "scripts": {
+    "build":  "umi-tools build",
+    "publish": "npm run build && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/umijs/umi-block-convertor.git"
+  },
+  "keywords": [
+    "umi",
+    "block"
+  ],
+  "devDependencies": {
+    "umi-tools":  "*"
+  },
+  "author": "yutingzhao1991 <yutingzhao1991@sina.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/umijs/umi-block-convertor/issues"
+  },
+  "homepage": "https://github.com/umijs/umi-block-convertor#readme"
+}
