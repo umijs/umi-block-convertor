@@ -7,7 +7,7 @@
     "umi-block-convertor": "./bin/convertor.js"
   },
   "scripts": {
-    "build":  "umi-tools build",
+    "build": "umi-tools build",
     "publish": "npm run build && npm publish"
   },
   "repository": {
@@ -19,12 +19,24 @@
     "block"
   ],
   "devDependencies": {
-    "umi-tools":  "*"
+    "umi-tools": "*"
   },
   "author": "yutingzhao1991 <yutingzhao1991@sina.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/umijs/umi-block-convertor/issues"
   },
-  "homepage": "https://github.com/umijs/umi-block-convertor#readme"
+  "files": [
+    "lib",
+    "src",
+    "bin",
+    "templates"
+  ],
+  "homepage": "https://github.com/umijs/umi-block-convertor#readme",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "lodash": "^4.17.11",
+    "yargs-parser": "^11.1.1",
+    "yeoman-generator": "^3.1.1"
+  }
 }

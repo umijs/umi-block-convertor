@@ -1,0 +1,22 @@
+{
+  "name": "@umi-block/<%= props.name %>",
+  "version": "0.0.1",
+  "description": "<%= props.description %>",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "umi dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/<%= props.repo %>/<%= props.name %>"
+  },
+  "dependencies": {
+    <%-packageDeps.map(dep => `"${dep[0]}": "${dep[1]}"`).join(',\n    ')%>
+  },
+  "devDependencies": {
+    "umi": "^2.0.0",
+    "umi-plugin-react": "^1.0.0",
+    "umi-plugin-block-dev": "^1.0.0"
+  },
+  "license": "ISC"
+}
