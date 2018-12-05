@@ -4,16 +4,20 @@ import { readFileSync, existsSync, statSync } from 'fs';
 import chalk from 'chalk';
 import uniq from 'lodash/uniq';
 
-function getDependencies(content) {
+export function getDependencies(content) {
   // 不用 ast 语法树是因为解析语法可能会出错
   const deps = [];
-  const reg1 = /import.+from\s+[\'\"]([@\.\/\w\-]+)[\'\"]/g;
+  const reg1 = /import(.+from)?\s+[\'\"]([@\.\/\w\-]+)[\'\"]/g;
   const reg2 = /import\([\'\"]([\.\/\w\-]+)[\'\"]\)/g;
+  const reg3 = /@import\s+[\'\"]\~([@\.\/\w\-]+)[\'\"]/g; // for style import
   let match;
   while ((match = reg1.exec(content)) !== null) {
-    deps.push(match[1]);
+    deps.push(match[2]);
   }
   while ((match = reg2.exec(content)) !== null) {
+    deps.push(match[1]);
+  }
+  while ((match = reg3.exec(content)) !== null) {
     deps.push(match[1]);
   }
   return deps;
@@ -34,11 +38,12 @@ class Convertor extends Generator {
   async writing() {
     const { source, target, extFiles = []} = this.opts;
     this._copyFile(source, join(target, 'src', `index${extname(source)}`));
+    console.log(`extFiles: ${extFiles}`);
     extFiles.forEach(ext => {
       if (this.opts.dryRun) {
         console.log(chalk.green(`dry run: start copy ${join(this.cwd, ext[0])} to ${jkoin(this.cwd, ext[1])}`));
       } else {
-        this.fs.copy(join(this.cwd, ext[0]), jkoin(this.cwd, ext[1]));
+        this._copyFile(resolve(this.cwd, ext[0]), resolve(target, ext[1]));
       }
     });
     if (this.opts.dryRun) {

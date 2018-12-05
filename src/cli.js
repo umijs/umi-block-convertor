@@ -1,5 +1,6 @@
 import yParser from 'yargs-parser';
 import chalk from 'chalk';
+import { resolve } from 'path';
 import convertor from './index';
 
 const source = process.argv[2];
@@ -13,7 +14,7 @@ if (!source || !target) {
 } else {
   console.log(chalk.green(`start conver ${source} to ${target} ...`));
   if (opts.config) {
-    opts = require(opts.config);
+    opts = require(resolve(process.cwd(), opts.config));
   }
   console.log(`options:\n${JSON.stringify(opts, null, 2)}`);
   convertor({

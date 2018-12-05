@@ -6,12 +6,12 @@ A cli tool to convert your umi page to a umi block.
 Usage
 ---
 
-```sh
-umi-block-convertor [block source entry js] [block target folder]
+```shell
+$ umi-block-convertor [block source entry js] [block target folder]
 ```
 
-```sh
-umi-block-convertor --config [path to config.json]
+```shell
+$ umi-block-convertor --config [path to config.json]
 ```
 
 Config
@@ -20,12 +20,13 @@ Config
 A config demo:
 
 ```json
+// all path relative to process.cwd()
 {
   "source": "./src/pages/test/Hello.js",
   "target": "../block/hello",
   "extFiles": [
-    ["./src/pages/test/model.js", "../block/hello/model.js"],
-    ["./src/pages/test/locals", "../block/hello/locals"]
+    ["./src/pages/test/model.js", "src/model.js"],
+    ["./src/pages/test/locals", "src/locals"]
   ]
 }
 ```

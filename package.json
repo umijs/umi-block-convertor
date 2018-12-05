@@ -8,7 +8,8 @@
   },
   "scripts": {
     "build": "umi-tools build",
-    "publish": "npm run build && npm publish"
+    "publish": "npm run build && npm publish",
+    "test": "umi-test src"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
     "block"
   ],
   "devDependencies": {
+    "umi-test": "^1.2.2",
     "umi-tools": "*"
   },
   "author": "yutingzhao1991 <yutingzhao1991@sina.com>",
