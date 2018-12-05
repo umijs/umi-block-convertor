@@ -57,7 +57,7 @@ class Convertor extends Generator {
           ...this.opts,
         },
         packageDeps: uniq(this.packageDeps).filter(dep => {
-          return dep !== 'umi';
+          return dep !== 'umi'  && dep !== '@alipay/bigfish';
         }).map(dep => {
           let version = '*';
           let packageJson = {
