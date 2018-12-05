@@ -1,6 +1,6 @@
 {
   "name": "umi-block-convertor",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A cli tool to convert your umi page to a umi block.",
   "main": "lib/index.js",
   "bin": {
