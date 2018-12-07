@@ -14,7 +14,7 @@
     <%-packageDeps.map(dep => `"${dep[0]}": "${dep[1]}"`).join(',\n    ')%>
   },
   "devDependencies": {
-    "umi": "^2.0.0",
+    "umi": "^2.3.0-beta.1",
     "umi-plugin-react": "^1.0.0",
     "umi-plugin-block-dev": "^1.0.0"
   },
